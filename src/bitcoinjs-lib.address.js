@@ -7,7 +7,7 @@ Bitcoin.Address = function (bytes) {
 	this.version = Bitcoin.Address.networkVersion;
 };
 
-Bitcoin.Address.networkVersion = 0x00; // mainnet
+Bitcoin.Address.networkVersion = 0x1E; // mainnet
 
 /**
 * Serialize this object as a standard Bitcoin address.
@@ -46,7 +46,7 @@ Bitcoin.Address.decodeString = function (string) {
 
 	var version = hash.shift();
 
-	if (version != 0) {
+	if (version != Bitcoin.Address.networkVersion) {
 		throw "Version " + version + " not supported!";
 	}
 
